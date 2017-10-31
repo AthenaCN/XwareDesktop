@@ -7,7 +7,7 @@ from PyQt5.Qt import PYQT_CONFIGURATION
 
 
 def getQtPath(name):
-    result = subprocess.check_output(["qmake", "-query", name], universal_newlines = True)
+    result = subprocess.check_output(["qmake-qt5", "-query", name], universal_newlines = True)
     result = result.replace("\n", "")
     return result
 
@@ -22,6 +22,7 @@ config = sipconfig.Configuration()
 os.system(" ".join([
     config.sip_bin, "-c", ".", "-b", build_file,
     "-I", "/usr/share/sip/PyQt5",
+    "-I", "/usr/share/python3-sip/PyQt5",
     PYQT_CONFIGURATION["sip_flags"],
     "DBusTypes.sip",
 ]))
