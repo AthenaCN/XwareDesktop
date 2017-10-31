@@ -1,7 +1,7 @@
 all: DBusTypes.so
 
 libDBusTypes.so: src/DBusTypes.cpp src/DBusTypes.hpp src/Extensions.pro
-	cd src && qmake && make
+	cd src && qmake-qt5 && make
 	cp src/build/libDBusTypes.so* ./
 
 DBusTypes.so: libDBusTypes.so
